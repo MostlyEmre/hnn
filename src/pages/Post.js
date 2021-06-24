@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { xAgo } from "../helper";
 import GoBack from "../components/GoBack";
+import { v4 as uuidv4 } from "uuid";
+import Comment from "../components/Comment";
 
 function Post({ match }) {
   const [post, setPost] = useState({});
@@ -25,13 +27,17 @@ function Post({ match }) {
   return (
     <div>
       <GoBack />
-      <p>{post.title}</p>
-      <a href={post.url} target="_blank" rel="noreferrer">
+      <h1>{post.title}</h1>
+      <a className="external-link" href={post.url} target="_blank" rel="noreferrer">
         {post.url}
       </a>
       <p>
-        This {post.type} is submitted by <Link to={`/user/${post.author}`}>{post.author}</Link> {xAgo(post.created_at_i)}.
+        This {post.type} is submitted by <Link to={`/user/${post.author}`}>{post.author}</Link> around {xAgo(post.created_at_i)}.
       </p>
+
+      {post.children.map((comment) => (
+        <Comment key={uuidv4()} comments={comment} />
+      ))}
     </div>
   );
 }

@@ -1,27 +1,37 @@
 body {
-  max-width: 960px;
+  max-width: 50ch;
   margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #242424;
-  color: white;
+  background-color: #181818;
+  color: whitesmoke;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 .App {
-  margin: 2rem;
+  overflow-wrap: break-word;
 }
 a {
-  color: aquamarine;
+  color: whitesmoke;
   text-decoration: none;
   font-weight: bold;
 }
 
-.post-wrapper {
-  background-color: #333;
+.external-link {
+  color: rgb(134, 255, 215);
+}
+
+hr {
+  border: 3px solid #696969;
+  border-radius: 0.3rem;
+}
+
+.post-wrapper,
+.comment {
+  background-color: #212121;
   padding: 0.5rem 1.5rem 0.5rem 1.5rem;
   margin: 0rem 0rem 1.5rem 0rem;
   border-radius: 1rem;

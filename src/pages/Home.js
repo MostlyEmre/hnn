@@ -12,7 +12,7 @@ function Home() {
   }, []);
 
   const getHNData = () => {
-    fetch("http://hn.algolia.com/api/v1/search_by_date?tags=story")
+    fetch("http://hn.algolia.com/api/v1/search?tags=front_page")
       .then((response) => response.json())
       .then((data) => data.hits.map((singlePost) => setPosts((posts) => [...posts, singlePost])))
       .then(() => setLoading(false));
@@ -22,14 +22,9 @@ function Home() {
   }
   return (
     <div>
-      <h1>home</h1>
-      <div className="App">
-        <h1>HNN</h1>
-        <h2>Posts</h2>
-        {posts.map((post) => (
-          <PostCard key={uuidv4()} postData={post} />
-        ))}
-      </div>
+      {posts.map((post) => (
+        <PostCard key={uuidv4()} postData={post} />
+      ))}
     </div>
   );
 }
