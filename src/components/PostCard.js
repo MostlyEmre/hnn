@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Favorite from "./Favorite";
 function PostCard({ postData }) {
   return (
     <div className="post-wrapper">
@@ -12,6 +12,7 @@ function PostCard({ postData }) {
       <Link to={`/post/${postData.objectID}`}>
         <p>{postData.num_comments} Comments</p>
       </Link>
+      <Favorite />
     </div>
   );
 }

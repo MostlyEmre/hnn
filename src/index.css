@@ -32,7 +32,52 @@ hr {
 .post-wrapper,
 .comment {
   background-color: #212121;
-  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  padding: 1rem 1rem 0.5rem 1rem;
   margin: 0rem 0rem 1.5rem 0rem;
   border-radius: 1rem;
+}
+
+.post-wrapper h2 {
+  margin: 0rem;
+}
+
+.menu {
+  display: inline-block;
+  list-style: none;
+  font-weight: bold;
+  font-size: large;
+  padding: 0;
+}
+
+.menu li {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.logo {
+  display: inline-block;
+  margin-right: 1rem;
+  /* margin-left: 1rem; */
+}
+
+.favorite-wrapper button {
+  opacity: 0.5;
+  color: whitesmoke;
+  font-size: normal;
+  padding: 0.5rem;
+  background-color: #333;
+  border: none;
+  border-radius: 0.5rem;
+  margin: 0rem 0rem 0.5rem 0rem;
+}
+.favorite-wrapper button:hover {
+  opacity: 1;
+  background-color: #393939;
+  cursor: pointer;
+}
+
+.favorited {
+  background-color: whitesmoke;
+  color: #393939;
+  opacity: 0.5;
 }

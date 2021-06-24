@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import PostCard from "../components/PostCard";
 
-function Home() {
+function Ask() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -12,7 +12,7 @@ function Home() {
   }, []);
   // RECORD: created_at_i, title, author, points, num_comments, objectID, type
   const getHNData = () => {
-    fetch("https://hn.algolia.com/api/v1/search?tags=front_page")
+    fetch("https://hn.algolia.com/api/v1/search?tags=ask_hn")
       .then((response) => response.json())
       .then((data) =>
         data.hits.map((singlePost) =>
@@ -45,4 +45,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Ask;

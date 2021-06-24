@@ -1,3 +1,4 @@
+import _ from "lodash";
 import React, { useState, useEffect } from "react";
 import GoBack from "../components/GoBack";
 import { xAgo, calendarDate } from "../helper";
@@ -9,7 +10,7 @@ function User({ match }) {
   }, []);
 
   const fetchUser = async () => {
-    const response = await fetch(`http://hn.algolia.com/api/v1/users/${match.params.username}`);
+    const response = await fetch(`https://hacker-news.firebaseio.com/v0/user/${match.params.username}.json?print=pretty`);
     const data = await response.json();
     setUser(data);
     setLoading(false);
@@ -18,15 +19,16 @@ function User({ match }) {
   return (
     <div>
       <GoBack />
-      <h1>{user.username}</h1>
-      <p>Total comments: {user.comment_count}</p>
+      <h1>{user.id}</h1>
+      <p>Karma: {user.karma}</p>
+      {user.submitted ? <p>Submissions: {user.submitted.length}</p> : <p>User doesn't have any submissions. Or there's an error with the hnAPI.</p>}
       <div>
         <h2>Bio</h2>
-        <p>{user.about ? user.about : "Doesn't have a bio."}</p>
+        {user.about ? <div className="comment" dangerouslySetInnerHTML={{ __html: user.about }} /> : <p>{_.capitalize(user.id)} doesn't have a bio.</p>}
       </div>
 
       <p>
-        Became a member around {xAgo(user.created_at_i)}. On {calendarDate(user.created_at_i)} to be exact.
+        Became a member around {xAgo(user.created)}. On {calendarDate(user.created)} to be exact.
       </p>
     </div>
   );

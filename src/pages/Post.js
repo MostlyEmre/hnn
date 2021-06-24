@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import _ from "lodash";
 import { Link } from "react-router-dom";
 import { xAgo } from "../helper";
 import GoBack from "../components/GoBack";
@@ -8,15 +9,24 @@ import Comment from "../components/Comment";
 function Post({ match }) {
   const [post, setPost] = useState({});
   const [loading, setLoading] = useState(true);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     fetchPost(match.params.id);
   }, []);
 
   const fetchPost = async (id) => {
-    const response = await fetch(`http://hn.algolia.com/api/v1/items/${id}`);
+    const response = await fetch(`https://hn.algolia.com/api/v1/items/${id}`);
     const data = await response.json();
     setPost(data);
+    setComments(data.children);
+    // count_of_children: comment.children.length,
+    // children: comment.children,
+    // author: comment.author,
+    // created_at_i: comment.created_at_i,
+    // text: comment.text,
+    // parent_id: comment.parent_id,
+    // story_id: comment.story_id,
     setLoading(false);
   };
 
@@ -35,7 +45,7 @@ function Post({ match }) {
         This {post.type} is submitted by <Link to={`/user/${post.author}`}>{post.author}</Link> around {xAgo(post.created_at_i)}.
       </p>
 
-      {post.children.map((comment) => (
+      {comments.map((comment) => (
         <Comment key={uuidv4()} comments={comment} />
       ))}
     </div>
