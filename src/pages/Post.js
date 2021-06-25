@@ -35,16 +35,22 @@ function Post({ match }) {
   }
 
   return (
-    <div>
+    <div className="main-post-wrapper">
       <GoBack />
-      <h1>{post.title}</h1>
-      <a className="external-link" href={post.url} target="_blank" rel="noreferrer">
-        {post.url}
-      </a>
-      <p>
+      <h1 className="post-title">{post.title}</h1>
+      <p className="post-meta">
         This {post.type} is submitted by <Link to={`/user/${post.author}`}>{post.author}</Link> around {xAgo(post.created_at_i)}.
       </p>
+      {post.url ? (
+        <div className="external-link-wrapper">
+          <a className="external-link" href={post.url} target="_blank" rel="noreferrer">
+            {post.url}
+          </a>
+        </div>
+      ) : null}
 
+      {post.text ? <div className="post-text" dangerouslySetInnerHTML={{ __html: post.text }} /> : console.log(`no`)}
+      <hr />
       {comments.map((comment) => (
         <Comment key={uuidv4()} comments={comment} />
       ))}

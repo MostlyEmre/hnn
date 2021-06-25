@@ -20,25 +20,44 @@ a {
   font-weight: bold;
 }
 
+p {
+  margin: 0 0 1rem 0;
+}
 .external-link {
-  color: rgb(134, 255, 215);
+  color: black;
+  background-color: whitesmoke;
+  margin: 0;
+  padding: 0;
+}
+
+.external-link-wrapper {
+  margin: 0rem 0.5rem 1rem 0rem;
+  background-color: whitesmoke;
+  padding: 1rem;
+  border-radius: 0rem 1rem 1rem 1rem;
 }
 
 hr {
-  border: 3px solid #696969;
+  border: 1px solid #333;
   border-radius: 0.3rem;
+  max-width: 45ch;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .post-wrapper,
 .comment {
   background-color: #212121;
-  padding: 1rem 1rem 0.5rem 1rem;
-  margin: 0rem 0rem 1.5rem 0rem;
-  border-radius: 1rem;
+  padding: 1rem 1.5rem 0.1rem 1rem;
+  margin: 1rem 0rem 0rem 0rem;
+  border-radius: 1rem 1rem 1rem 0rem;
 }
 
+.comment > p {
+  line-height: 1.5rem;
+}
 .post-wrapper h2 {
-  margin: 0rem;
+  margin: 0rem 0rem 1rem 0rem;
 }
 
 .menu {
@@ -80,4 +99,85 @@ hr {
   background-color: whitesmoke;
   color: #393939;
   opacity: 0.5;
+}
+.post-text {
+  background-color: whitesmoke;
+  color: #181818;
+  padding: 1rem 1.5rem 0.5rem 1.1rem;
+  margin: 0rem 0rem 1.5rem 0rem;
+  border-radius: 0rem 1rem 1rem 1rem;
+}
+.comment-meta {
+  margin: 0.5rem 1rem 0.5rem 0rem;
+  opacity: 0.25;
+  display: inline-block;
+  font-size: small;
+}
+
+/* User */
+.bio-wrapper {
+  background-color: #212121;
+  padding: 1rem 1.5rem 1rem 1rem;
+  margin: 1rem 0rem 1rem 0rem;
+  border-radius: 0rem 1rem 1rem 1rem;
+}
+
+.bio-meta {
+  display: inline-block;
+  margin-right: 0.5rem;
+  background-color: #282828;
+  padding: 0.4rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  font-size: small;
+  opacity: 0.5;
+}
+.bio-meta > span {
+  color: aquamarine;
+}
+.user-title {
+  margin-bottom: 0.75rem;
+}
+
+/* GoBack */
+
+.goback-wrapper > button {
+  background-color: whitesmoke;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-weight: bold;
+  opacity: 0.5;
+}
+/* .favorite-wrapper button {
+  opacity: 0.5;
+  color: whitesmoke;
+  font-size: normal;
+  padding: 0.5rem;
+  background-color: #333;
+  border: none;
+  border-radius: 0.5rem;
+  margin: 0rem 0rem 0.5rem 0rem;
+} */
+.goback-wrapper button:hover {
+  background-color: white;
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* Post */
+.post-title {
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.post-meta {
+  margin-top: 0;
+}
+
+/* footer */
+#footer {
+  text-align: center;
+}
+#footer p {
+  opacity: 0.25;
 }

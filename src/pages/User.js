@@ -19,17 +19,22 @@ function User({ match }) {
   return (
     <div>
       <GoBack />
-      <h1>{user.id}</h1>
-      <p>Karma: {user.karma}</p>
-      {user.submitted ? <p>Submissions: {user.submitted.length}</p> : <p>User doesn't have any submissions. Or there's an error with the hnAPI.</p>}
-      <div>
-        <h2>Bio</h2>
-        {user.about ? <div className="comment" dangerouslySetInnerHTML={{ __html: user.about }} /> : <p>{_.capitalize(user.id)} doesn't have a bio.</p>}
-      </div>
-
+      <h1 className="user-title">{user.id}</h1>
+      <p className="bio-meta">
+        Karma <span>{user.karma}</span>
+      </p>
+      {user.submitted ? (
+        <p className="bio-meta">
+          Posts <span>{user.submitted.length}</span>
+        </p>
+      ) : null}
       <p>
         Became a member around {xAgo(user.created)}. On {calendarDate(user.created)} to be exact.
       </p>
+      <div>
+        <h2>Bio</h2>
+        {user.about ? <div className="bio-wrapper" dangerouslySetInnerHTML={{ __html: user.about }} /> : <p>{_.capitalize(user.id)} doesn't have a bio.</p>}
+      </div>
     </div>
   );
 }

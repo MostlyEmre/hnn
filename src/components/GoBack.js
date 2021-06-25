@@ -7,7 +7,7 @@ function GoBack() {
     history.goBack();
   };
   return (
-    <div>
+    <div className="goback-wrapper">
       <button onClick={handleClick}>Go Back</button>
     </div>
   );

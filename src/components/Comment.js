@@ -1,11 +1,21 @@
 import React from "react";
+import { xAgo } from "../helper";
+import { Link } from "react-router-dom";
 
 function Comment({ comments }) {
-  return comments.text ? (
-    <div className="comment" dangerouslySetInnerHTML={{ __html: comments.text }} />
-  ) : (
-    <div style={{ display: "hidden" }}>
-      <p></p>
+  if (!comments.text) {
+    return <div style={{ display: "hidden" }} />;
+  }
+
+  return (
+    <div>
+      <div className="comment" dangerouslySetInnerHTML={{ __html: comments.text }} />
+      <p className="comment-meta">
+        <Link to={`/user/${comments.author}`}>
+          {`>`} {comments.author}
+        </Link>
+      </p>
+      <p className="comment-meta">{xAgo(comments.created_at_i)}</p>
     </div>
   );
 }

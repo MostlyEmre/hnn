@@ -14,23 +14,7 @@ function Ask() {
   const getHNData = () => {
     fetch("https://hn.algolia.com/api/v1/search?tags=ask_hn")
       .then((response) => response.json())
-      .then((data) =>
-        data.hits.map((singlePost) =>
-          setPosts((posts) => [
-            ...posts,
-            {
-              favorite: false,
-              created_at_i: singlePost.created_at_i,
-              title: singlePost.title,
-              author: singlePost.author,
-              points: singlePost.points,
-              num_comments: singlePost.num_comments,
-              objectID: singlePost.objectID,
-              type: singlePost.type,
-            },
-          ])
-        )
-      )
+      .then((data) => data.hits.map((singlePost) => setPosts((posts) => [...posts, singlePost])))
       .then(() => setLoading(false));
   };
   if (loading) {
