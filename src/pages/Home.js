@@ -27,6 +27,7 @@ function Home() {
               num_comments: singlePost.num_comments,
               objectID: singlePost.objectID,
               type: singlePost.type,
+              url: singlePost.url,
             },
           ])
         )

@@ -11,8 +11,9 @@ function Comment({ comments }) {
     <div>
       <div className="comment" dangerouslySetInnerHTML={{ __html: comments.text }} />
       <p className="comment-meta">
-        <Link to={`/user/${comments.author}`}>
-          {`>`} {comments.author}
+        {`> `}
+        <Link to={`/user/${comments.author}`} className="comment-username">
+          {comments.author}
         </Link>
       </p>
       <p className="comment-meta">{xAgo(comments.created_at_i)}</p>
