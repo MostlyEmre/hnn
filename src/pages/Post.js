@@ -5,6 +5,7 @@ import { xAgo } from "../helper";
 import GoBack from "../components/GoBack";
 import { v4 as uuidv4 } from "uuid";
 import Comment from "../components/Comment";
+import Loading from "../components/Loading";
 
 function Post({ match }) {
   const [post, setPost] = useState({});
@@ -31,7 +32,7 @@ function Post({ match }) {
   };
 
   if (loading) {
-    return <p>Loading data...</p>;
+    return <Loading />;
   }
 
   return (

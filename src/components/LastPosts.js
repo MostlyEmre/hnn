@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import PostCard from "../components/PostCard";
-import Loading from "../components/Loading";
+import PostCard from "./PostCard";
+import Loading from "./Loading";
 
-function Home() {
-  const [posts, setPosts] = useState([]);
+export default function LastPosts({ user }) {
+  const [recentPosts, setRecentPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getHNData();
+    fetchLastThreePosts();
   }, []);
-  // RECORD: created_at_i, title, author, points, num_comments, objectID, type
-  const getHNData = () => {
-    fetch("https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=10")
+
+  const fetchLastThreePosts = () => {
+    fetch(`http://hn.algolia.com/api/v1/search_by_date?tags=story,author_${user}&hitsPerPage=3`)
       .then((response) => response.json())
       .then((data) =>
         data.hits.map((singlePost) =>
-          setPosts((posts) => [
+          setRecentPosts((posts) => [
             ...posts,
             {
               favorite: false,
@@ -35,16 +35,17 @@ function Home() {
       )
       .then(() => setLoading(false));
   };
+
   if (loading) {
     return <Loading />;
   }
+
   return (
     <div>
-      {posts.map((post) => (
+      <h2>Latest Posts</h2>
+      {recentPosts.map((post) => (
         <PostCard key={uuidv4()} postData={post} />
       ))}
     </div>
   );
 }
-
-export default Home;

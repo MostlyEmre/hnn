@@ -1,7 +1,10 @@
 import _ from "lodash";
 import React, { useState, useEffect } from "react";
 import GoBack from "../components/GoBack";
+import Loading from "../components/Loading";
+import LastPosts from "../components/LastPosts";
 import { xAgo, calendarDate } from "../helper";
+
 function User({ match }) {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
@@ -15,6 +18,10 @@ function User({ match }) {
     setUser(data);
     setLoading(false);
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div>
@@ -35,6 +42,7 @@ function User({ match }) {
         <h2>Bio</h2>
         {user.about ? <div className="bio-wrapper" dangerouslySetInnerHTML={{ __html: user.about }} /> : <p>{_.capitalize(user.id)} doesn't have a bio.</p>}
       </div>
+      <LastPosts user={user.id} />
     </div>
   );
 }

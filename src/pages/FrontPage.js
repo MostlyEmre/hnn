@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import PostCard from "../components/PostCard";
 import Loading from "../components/Loading";
 
-function Ask() {
+function FrontPage() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -13,7 +13,7 @@ function Ask() {
   }, []);
   // RECORD: created_at_i, title, author, points, num_comments, objectID, type
   const getHNData = () => {
-    fetch("https://hn.algolia.com/api/v1/search_by_date?tags=ask_hn&hitsPerPage=10")
+    fetch("http://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=10")
       .then((response) => response.json())
       .then((data) => data.hits.map((singlePost) => setPosts((posts) => [...posts, singlePost])))
       .then(() => setLoading(false));
@@ -30,4 +30,4 @@ function Ask() {
   );
 }
 
-export default Ask;
+export default FrontPage;

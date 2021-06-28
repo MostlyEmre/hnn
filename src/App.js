@@ -5,6 +5,7 @@ import User from "./pages/User";
 import New from "./pages/New";
 import Show from "./pages/Show";
 import Ask from "./pages/Ask";
+import FrontPage from "./pages/FrontPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/new" exact component={New} />
           <Route path="/show" exact component={Show} />
           <Route path="/ask" exact component={Ask} />
+          <Route path="/frontpage" exact component={FrontPage} />
           <Route path="/user/:username" exact component={User} />
         </Switch>
         <Footer />
