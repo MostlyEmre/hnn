@@ -15,7 +15,6 @@ HNN doesn't show the children comments. So the comments are only 1 level deep.
 ## What did I do? What will I do?
 
 - [x] Automatically hide deleted comments that are still on the API.
-- [ ] Login to favorite and see your favorites.
 - [ ] Favorite posts.
 - [ ] Pagination.
 - [ ] Sort the comments either by their children count or karma or something.
@@ -26,3 +25,4 @@ HNN doesn't show the children comments. So the comments are only 1 level deep.
 
 - [ ] Implement search.
 - [ ] Block posts.
+- [ ] Login to favorite and see your favorites.
