@@ -14,7 +14,6 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/:postType" exact component={Home} />
           <Route path="/post/:id" exact component={Post} />
-
           <Route path="/user/:username" exact component={User} />
         </Switch>
         <Footer />

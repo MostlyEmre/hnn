@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import _ from "lodash";
 import { Link } from "react-router-dom";
 import { xAgo } from "../helper";
 import GoBack from "../components/GoBack";

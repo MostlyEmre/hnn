@@ -23,9 +23,13 @@ a {
 
 /* Header */
 header {
+  width: 90%;
+  height: 3rem;
+  margin: 1rem auto 0rem auto;
   display: grid;
   grid-template-columns: 1fr 4fr;
 }
+
 header > h1 {
   display: inline-block;
 }
@@ -63,7 +67,7 @@ p {
 hr {
   border: 1px solid #333;
   border-radius: 0.3rem;
-  max-width: 45ch;
+  max-width: 90%;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -107,7 +111,8 @@ hr {
 
 /* ButtonBundle */
 
-.favorite-wrapper {
+.favorite-wrapper,
+.favorited {
   display: inline-block;
   margin-right: 0.5rem;
 }
@@ -128,11 +133,22 @@ hr {
   cursor: pointer;
 }
 
-.favorited {
-  background-color: whitesmoke;
-  color: #393939;
-  opacity: 0.5;
+.favorited button {
+  opacity: 0.75;
+  color: white;
+  font-size: normal;
+  padding: 0.5rem;
+  background-color: deeppink;
+  border: none;
+  border-radius: 0.5rem;
+  margin: 0rem 0rem 0.5rem 0rem;
 }
+
+.favorited button:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
 .post-text {
   background-color: whitesmoke;
   color: #484848;
@@ -180,13 +196,17 @@ hr {
 
 /* GoBack */
 
+.goback-wrapper {
+  width: 90%;
+  margin: auto;
+}
+
 .goback-wrapper > button {
   background-color: whitesmoke;
   border: none;
   border-radius: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.1rem 0.7rem 0.4rem 0.7rem;
   font-weight: bold;
-  opacity: 0.5;
 }
 
 .goback-wrapper button:hover {
@@ -223,6 +243,8 @@ hr {
 
 /* Pagination */
 .pagination {
+  width: 90%;
+  margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-top: 1rem;

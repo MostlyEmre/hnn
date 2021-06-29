@@ -1,7 +1,7 @@
 import React from "react";
 import ButtonBundle from "./ButtonBundle";
 
-function PostCard({ postData }) {
+function PostCard({ postData, favorites, setFavorites }) {
   return (
     <div className="post-wrapper">
       <h2>
@@ -9,7 +9,7 @@ function PostCard({ postData }) {
           {postData.title}
         </a>
       </h2>
-      <ButtonBundle numberOfComments={postData.num_comments} postID={postData.objectID} />
+      <ButtonBundle favorites={favorites} setFavorites={setFavorites} numberOfComments={postData.num_comments} postID={postData.objectID} />
     </div>
   );
 }
