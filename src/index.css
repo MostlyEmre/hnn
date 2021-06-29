@@ -100,7 +100,16 @@ hr {
 .logo {
   display: inline-block;
   margin-right: 1rem;
+  margin-bottom: 0;
+  margin-top: 0.5rem;
   /* margin-left: 1rem; */
+}
+
+/* ButtonBundle */
+
+.favorite-wrapper {
+  display: inline-block;
+  margin-right: 0.5rem;
 }
 
 .favorite-wrapper button {
@@ -202,4 +211,12 @@ hr {
 }
 #footer p {
   opacity: 0.25;
+}
+
+/* ShareButton */
+.favorite-wrapper .copied:hover {
+  color: aquamarine;
+}
+.favorite-wrapper .copied {
+  color: aquamarine;
 }

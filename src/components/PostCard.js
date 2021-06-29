@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Favorite from "./Favorite";
+import ButtonBundle from "./ButtonBundle";
+
 function PostCard({ postData }) {
   return (
     <div className="post-wrapper">
@@ -9,10 +9,7 @@ function PostCard({ postData }) {
           {postData.title}
         </a>
       </h2>
-      <Link to={`/post/${postData.objectID}`}>
-        <p>{postData.num_comments} Comments</p>
-      </Link>
-      <Favorite />
+      <ButtonBundle numberOfComments={postData.num_comments} postID={postData.objectID} />
     </div>
   );
 }

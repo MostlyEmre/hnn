@@ -3,17 +3,46 @@ import { v4 as uuidv4 } from "uuid";
 
 import PostCard from "../components/PostCard";
 import Loading from "../components/Loading";
+import { useParams, useLocation } from "react-router-dom";
 
 function Home() {
+  let location = useLocation();
+  let { postType } = useParams();
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getHNData();
-  }, []);
+    setPosts([]);
+    setLoading(true);
+    console.log(location.pathname);
+    pageSwitch(location.pathname);
+  }, [location.pathname]);
   // RECORD: created_at_i, title, author, points, num_comments, objectID, type
-  const getHNData = () => {
-    fetch("https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=10")
+
+  const pageSwitch = (postType) => {
+    switch (postType) {
+      case "/":
+        getHNData("front_page");
+        break;
+      case "/new":
+        getHNData("(story,show_hn,ask_hn)");
+        break;
+      case "/show":
+        getHNData("show_hn");
+        break;
+      case "/ask":
+        getHNData("ask_hn");
+        break;
+      case "/frontpage":
+        getHNData("front_page");
+      default:
+        getHNData("front_page");
+        break;
+    }
+  };
+
+  const getHNData = (name) => {
+    fetch(name === "(story,show_hn,ask_hn)" ? `https://hn.algolia.com/api/v1/search_by_date?tags=${name}&hitsPerPage=10` : `https://hn.algolia.com/api/v1/search?tags=${name}&hitsPerPage=10`)
       .then((response) => response.json())
       .then((data) =>
         data.hits.map((singlePost) =>

@@ -8,6 +8,7 @@ import { xAgo, calendarDate } from "../helper";
 function User({ match }) {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     fetchUser();
   }, []);

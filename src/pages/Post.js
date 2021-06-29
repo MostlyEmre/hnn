@@ -21,13 +21,6 @@ function Post({ match }) {
     const data = await response.json();
     setPost(data);
     setComments(data.children);
-    // count_of_children: comment.children.length,
-    // children: comment.children,
-    // author: comment.author,
-    // created_at_i: comment.created_at_i,
-    // text: comment.text,
-    // parent_id: comment.parent_id,
-    // story_id: comment.story_id,
     setLoading(false);
   };
 
