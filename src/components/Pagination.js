@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Pagination({ currentPage, setCurrentPage }) {
+export default function Pagination({ totalPages, currentPage, setCurrentPage }) {
   const handlePreviousClick = () => {
     setCurrentPage(currentPage - 1);
   };
@@ -11,12 +11,21 @@ export default function Pagination({ currentPage, setCurrentPage }) {
 
   return (
     <div className="pagination">
-      <button className="previous" onClick={handlePreviousClick}>
-        👈 Previous
-      </button>
-      <button className="next" onClick={handleNextClick}>
-        Next 👉
-      </button>
+      {currentPage > 1 ? (
+        <button className="previous" onClick={handlePreviousClick}>
+          👈 Previous
+        </button>
+      ) : (
+        <div></div>
+      )}
+
+      {currentPage === totalPages - 1 ? (
+        <div></div>
+      ) : (
+        <button className="next" onClick={handleNextClick}>
+          Next 👉
+        </button>
+      )}
     </div>
   );
 }

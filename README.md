@@ -16,8 +16,7 @@ HNN doesn't show the children comments. So the comments are only 1 level deep.
 
 - [x] Automatically hide deleted comments that are still on the API.
 - [ ] Favorite posts.
-- [ ] Pagination.
-- [ ] Sort the comments either by their children count or karma or something.
+- [x] Pagination.
 - [x] Do the `new` page, `askHN` page, `showHN` page
 - [x] List the last 3 submissions of a user.
 
@@ -25,4 +24,5 @@ HNN doesn't show the children comments. So the comments are only 1 level deep.
 
 - [ ] Implement search.
 - [ ] Block posts.
+- [ ] Sort the comments either by their children count or karma or something. (API limitations 😢)
 - [ ] Login to favorite and see your favorites.

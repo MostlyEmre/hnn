@@ -5,6 +5,7 @@ import PostCard from "../components/PostCard";
 import Loading from "../components/Loading";
 import Pagination from "../components/Pagination";
 import { useParams, useLocation } from "react-router-dom";
+import { set } from "lodash";
 
 function Home() {
   let location = useLocation();
@@ -61,6 +62,8 @@ function Home() {
         console.log(name);
         console.log(currentPage);
         console.log(data);
+        setCurrentPage(data.page);
+        setTotalPages(data.nbPages);
         data.hits.map((singlePost) =>
           setPosts((posts) => [
             ...posts,
@@ -88,7 +91,7 @@ function Home() {
       {posts.map((post) => (
         <PostCard key={uuidv4()} postData={post} />
       ))}
-      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <Pagination totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
     </div>
   );
 }
