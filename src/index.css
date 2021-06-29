@@ -220,3 +220,33 @@ hr {
 .favorite-wrapper .copied {
   color: aquamarine;
 }
+
+/* Pagination */
+.pagination {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.pagination button {
+  background-color: whitesmoke;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+}
+.pagination button:hover {
+  cursor: pointer;
+  background-color: white;
+}
+.next {
+  justify-self: flex-end;
+  align-self: stretch;
+  padding: 0.3rem 0.5rem 0.5rem 1rem;
+}
+
+.previous {
+  justify-self: flex-start;
+  align-self: stretch;
+
+  padding: 0.3rem 1rem 0.5rem 0.5rem;
+}

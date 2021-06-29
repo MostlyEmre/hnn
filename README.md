@@ -16,8 +16,8 @@ What did I do? What will I do?
 - [ ] Favorite posts.
 - [ ] Pagination.
 - [ ] Sort the comments either by their children count or karma or something.
-- [ ] Do the `new` page, `askHN` page, `showHN` page
-- [ ] List the last 3 submissions of a user.
+- [x] Do the `new` page, `askHN` page, `showHN` page
+- [x] List the last 3 submissions of a user.
 
 Some maybes:
 

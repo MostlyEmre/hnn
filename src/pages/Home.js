@@ -3,38 +3,46 @@ import { v4 as uuidv4 } from "uuid";
 
 import PostCard from "../components/PostCard";
 import Loading from "../components/Loading";
+import Pagination from "../components/Pagination";
 import { useParams, useLocation } from "react-router-dom";
 
 function Home() {
   let location = useLocation();
   let { postType } = useParams();
   const [posts, setPosts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setPosts([]);
+    // setPosts([]);
     setLoading(true);
-    console.log(location.pathname);
-    pageSwitch(location.pathname);
+    pageSwitch(postType);
   }, [location.pathname]);
   // RECORD: created_at_i, title, author, points, num_comments, objectID, type
 
+  useEffect(() => {
+    // setPosts([]);
+    setLoading(true);
+    console.log(`CurrentPage useEffect`);
+    pageSwitch(postType);
+  }, [currentPage]);
+
   const pageSwitch = (postType) => {
+    console.log(`\n\npageSwitch => ${postType}`);
     switch (postType) {
-      case "/":
-        getHNData("front_page");
-        break;
-      case "/new":
+      case "new":
         getHNData("(story,show_hn,ask_hn)");
         break;
-      case "/show":
+      case "show":
         getHNData("show_hn");
         break;
-      case "/ask":
+      case "ask":
         getHNData("ask_hn");
         break;
-      case "/frontpage":
+      case "frontpage":
         getHNData("front_page");
+        break;
       default:
         getHNData("front_page");
         break;
@@ -42,9 +50,17 @@ function Home() {
   };
 
   const getHNData = (name) => {
-    fetch(name === "(story,show_hn,ask_hn)" ? `https://hn.algolia.com/api/v1/search_by_date?tags=${name}&hitsPerPage=10` : `https://hn.algolia.com/api/v1/search?tags=${name}&hitsPerPage=10`)
+    fetch(
+      name === "(story,show_hn,ask_hn)"
+        ? `https://hn.algolia.com/api/v1/search_by_date?tags=${name}&page=${currentPage}&hitsPerPage=10`
+        : `https://hn.algolia.com/api/v1/search?tags=${name}&page=${currentPage}&hitsPerPage=10`
+    )
       .then((response) => response.json())
-      .then((data) =>
+      .then((data) => {
+        setPosts([]);
+        console.log(name);
+        console.log(currentPage);
+        console.log(data);
         data.hits.map((singlePost) =>
           setPosts((posts) => [
             ...posts,
@@ -60,8 +76,8 @@ function Home() {
               url: singlePost.url,
             },
           ])
-        )
-      )
+        );
+      })
       .then(() => setLoading(false));
   };
   if (loading) {
@@ -72,6 +88,7 @@ function Home() {
       {posts.map((post) => (
         <PostCard key={uuidv4()} postData={post} />
       ))}
+      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
     </div>
   );
 }

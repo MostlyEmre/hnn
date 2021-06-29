@@ -5,7 +5,6 @@ function Favorite({ postID }) {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    console.log(`Loading Favorites`);
     setLoading(false);
   }, []);
 
@@ -14,9 +13,9 @@ function Favorite({ postID }) {
     setFavorites(postID);
   };
 
-  const saveFavorites = () => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  };
+  // const saveFavorites = () => {
+  //   localStorage.setItem("favorites", JSON.stringify(favorites));
+  // };
 
   if (loading) {
     return (

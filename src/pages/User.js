@@ -33,7 +33,7 @@ function User({ match }) {
       </p>
       {user.submitted ? (
         <p className="bio-meta">
-          Posts <span>{user.submitted.length}</span>
+          Submissions <span>{user.submitted.length}</span>
         </p>
       ) : null}
       <p>

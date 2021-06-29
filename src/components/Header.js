@@ -11,14 +11,13 @@ function Header() {
       </h1>
       <ul className="menu">
         <li>
-          <NavLink to="/frontpage" activeClassName="active-link">
-            frontpage
-          </NavLink>
-        </li>
-
-        <li>
           <NavLink to="/new" activeClassName="active-link">
             new
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/frontpage" activeClassName="active-link">
+            frontpage
           </NavLink>
         </li>
 

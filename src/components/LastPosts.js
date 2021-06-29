@@ -34,6 +34,7 @@ export default function LastPosts({ user }) {
         )
       )
       .then(() => setLoading(false));
+    console.log(recentPosts.length);
   };
 
   if (loading) {
@@ -43,9 +44,8 @@ export default function LastPosts({ user }) {
   return (
     <div>
       <h2>Latest Posts</h2>
-      {recentPosts.map((post) => (
-        <PostCard key={uuidv4()} postData={post} />
-      ))}
+
+      {recentPosts.length === 0 ? <p>Couldn't find any posts. :(</p> : recentPosts.map((post) => <PostCard key={uuidv4()} postData={post} />)}
     </div>
   );
 }

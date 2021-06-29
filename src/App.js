@@ -12,7 +12,6 @@ function App() {
         <Header />
         <Switch>
           <Route path="/" exact component={Home} />
-
           <Route path="/:postType" exact component={Home} />
           <Route path="/post/:id" exact component={Post} />
 
