@@ -8,6 +8,8 @@ import Footer from "./components/Footer";
 
 function App() {
   const [favorites, setFavorites] = useState([]);
+  const [currentPageType, setCurrentPageType] = useState("frontpage");
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     localStorage.getItem("favorites" === null) ? localStorage.setItem("favorites", JSON.stringify([])) : setFavorites(JSON.parse(localStorage.getItem("favorites")));
@@ -18,13 +20,45 @@ function App() {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [currentPageType]);
+
   return (
     <Router>
       <div className="App">
         <Header />
         <Switch>
-          <Route path="/" exact render={(props) => <Home {...props} favorites={favorites} setFavorites={setFavorites} />} />
-          <Route path="/:postType" exact render={(props) => <Home {...props} favorites={favorites} setFavorites={setFavorites} />} />
+          <Route
+            path="/"
+            exact
+            render={(props) => (
+              <Home
+                {...props}
+                favorites={favorites}
+                setFavorites={setFavorites}
+                currentPageType={currentPageType}
+                setCurrentPageType={setCurrentPageType}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+              />
+            )}
+          />
+          <Route
+            path="/:category"
+            exact
+            render={(props) => (
+              <Home
+                {...props}
+                favorites={favorites}
+                setFavorites={setFavorites}
+                currentPageType={currentPageType}
+                setCurrentPageType={setCurrentPageType}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+              />
+            )}
+          />
           <Route path="/post/:id" exact component={Post} />
           <Route path="/user/:username" exact render={(props) => <User {...props} favorites={favorites} setFavorites={setFavorites} />} />
         </Switch>

@@ -11,7 +11,6 @@ export default function SharePost({ postID }) {
 
   const handleClick = (e) => {
     navigator.clipboard.writeText(`${window.location.origin}/post/${postID}`);
-    console.log(`Copied the post link!`);
     setCopy(true);
   };
 

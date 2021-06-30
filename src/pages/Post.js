@@ -42,7 +42,7 @@ function Post({ match }) {
         </div>
       ) : null}
 
-      {post.text ? <div className="post-text" dangerouslySetInnerHTML={{ __html: post.text }} /> : console.log(`no`)}
+      {post.text ? <div className="post-text" dangerouslySetInnerHTML={{ __html: post.text }} /> : null}
       <hr />
       {comments.map((comment) => (
         <Comment key={uuidv4()} comments={comment} />

@@ -1,24 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-
+// import components
 import PostCard from "../components/PostCard";
 import Loading from "../components/Loading";
 import Pagination from "../components/Pagination";
 import { useParams } from "react-router-dom";
 
-function Home({ favorites, setFavorites }) {
-  let { postType } = useParams();
+function Home({ favorites, setFavorites, currentPageType, setCurrentPageType, currentPage, setCurrentPage }) {
+  let { category } = useParams();
   const [posts, setPosts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setCurrentPage(1);
+    setCurrentPageType(category);
+  }, [category]);
+
+  useEffect(() => {
     // setPosts([]);
     setLoading(true);
-    pageSwitch(postType);
-  }, [postType]);
+    pageSwitch(category);
+  }, [currentPageType]);
   // RECORD: created_at_i, title, author, points, num_comments, objectID, type
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [currentPageType]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -27,13 +35,11 @@ function Home({ favorites, setFavorites }) {
   useEffect(() => {
     // setPosts([]);
     setLoading(true);
-    console.log(`CurrentPage useEffect`);
-    pageSwitch(postType);
+    pageSwitch(category);
   }, [currentPage]);
 
-  const pageSwitch = (postType) => {
-    console.log(`\n\npageSwitch => ${postType}`);
-    switch (postType) {
+  const pageSwitch = (categoryName) => {
+    switch (categoryName) {
       case "new":
         getHNData("(story,show_hn,ask_hn)");
         break;
@@ -61,9 +67,6 @@ function Home({ favorites, setFavorites }) {
       .then((response) => response.json())
       .then((data) => {
         setPosts([]);
-        console.log(name);
-        console.log(currentPage);
-        console.log(data);
         setCurrentPage(data.page);
         setTotalPages(data.nbPages);
         data.hits.map((singlePost) =>

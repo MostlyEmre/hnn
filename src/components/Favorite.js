@@ -1,23 +1,19 @@
-import React, { useEffect, useState } from "react";
-import _ from "lodash";
+import React from "react";
+
 function Favorite({ postID, favorites, setFavorites }) {
   const addFavorite = () => {
-    console.log(`Adding favorite...`);
     setFavorites([...(favorites || []), postID]);
-    console.log(`New favorites ${favorites}`);
   };
 
   const removeFavorite = () => {
-    console.log(`Removing favorite...`);
     setFavorites(favorites.filter((favorite) => favorite !== postID));
-    console.log(`New favorites ${favorites}`);
   };
 
   const handleClick = () => {
-    _.includes(favorites, postID) ? removeFavorite() : addFavorite();
+    favorites.includes(postID) ? removeFavorite() : addFavorite();
   };
 
-  if (_.includes(favorites, postID)) {
+  if (favorites.includes(postID)) {
     return (
       <div className="favorited">
         <button onClick={handleClick}>Favorited</button>

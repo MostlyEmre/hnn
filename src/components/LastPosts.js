@@ -34,7 +34,6 @@ export default function LastPosts({ user, favorites, setFavorites }) {
         )
       )
       .then(() => setLoading(false));
-    console.log(recentPosts.length);
   };
 
   if (loading) {
