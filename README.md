@@ -18,6 +18,7 @@ There are things that I've done that I forgot to list below.
 
 - [x] Automatically hide deleted comments that are still on the API.
 - [x] Favorite posts.
+- [x] User profiles & user's last submissions.
 - [x] Pagination.
 - [x] Go Back button.
 - [x] Do the `new` page, `askHN` page, `showHN` page
