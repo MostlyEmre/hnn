@@ -8,6 +8,15 @@ For this project, I applied custom css instead of delving into one of the Compon
 
 HNN doesn't show the children comments. So the comments are only 1 level deep.
 
+## A bug
+
+Just wanted to write it down so that I never ever forget it.
+
+The following typo cost me 1.5 days:
+
+❎ localStorage.getItem("favorites" === null) ? ...
+✅ localStorage.getItem("favorites") === null ? ...
+
 ## Helper functions
 
 `xAgo(unixTimestamp)` // receives Unix Timestamp, returns `6 minutes ago` type of string.
