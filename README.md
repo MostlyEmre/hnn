@@ -1,8 +1,10 @@
 ## Information
 
-HNN is a Hacker News reader that I created in React, to practice React.
+[HNN](https://hnnetwork-a2abe.web.app/) is a [Hacker News](https://news.ycombinator.com/) reader that I created in React, to practice React.
 
-HNN uses 2 different Hacker News APIs, Algolia HN API and Firebase HN API. The reason for this is that one have the data that the other one does not, and the other have some APIs that the other one does not.
+HNN uses 2 different Hacker News APIs, [Algolia HN API](https://hn.algolia.com/api) and [Firebase HN API](https://github.com/HackerNews/API). The reason for this is that one have the data that the other one does not, and the other have some APIs that the other one does not.
+
+For this project, I applied custom css instead of delving into one of the Component or CSS libraries. I want to try Material UI in my next project and maybe Tailwind CSS after.
 
 HNN doesn't show the children comments. So the comments are only 1 level deep.
 
