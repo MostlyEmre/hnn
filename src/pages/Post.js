@@ -13,7 +13,7 @@ function Post({ match }) {
 
   useEffect(() => {
     fetchPost(match.params.id);
-  }, [match.params.id]);
+  }, []);
 
   const fetchPost = async (id) => {
     const response = await fetch(`https://hn.algolia.com/api/v1/items/${id}`);
@@ -42,7 +42,7 @@ function Post({ match }) {
         </div>
       ) : null}
 
-      {post.text ? <div className="post-text" dangerouslySetInnerHTML={{ __html: post.text }} /> : null}
+      {post.text ? <div className="post-text" dangerouslySetInnerHTML={{ __html: post.text }} /> : console.log(`no`)}
       <hr />
       {comments.map((comment) => (
         <Comment key={uuidv4()} comments={comment} />

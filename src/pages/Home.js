@@ -1,54 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { useParams } from "react-router-dom";
-// Import components
+
 import PostCard from "../components/PostCard";
 import Loading from "../components/Loading";
 import Pagination from "../components/Pagination";
+import { useParams } from "react-router-dom";
 
-function Home({ favorites, setFavorites }) {
+function Home() {
   let { postType } = useParams();
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
-  // const [favorites, setFavorites] = useState([]);
-
-  // useEffect(() => {
-  //   const getFavorites = () => {
-  //     if (localStorage.getItem("favorites" === null)) {
-  //       localStorage.getItem("favorites", JSON.stringify([]));
-  //     } else {
-  //       let localFavorites = JSON.parse(localStorage.getItem("favorites"));
-  //       setFavorites(localFavorites);
-  //     }
-  //   };
-  //   getFavorites();
-  // }, []);
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
+    // setPosts([]);
     setLoading(true);
     pageSwitch(postType);
   }, [postType]);
+  // RECORD: created_at_i, title, author, points, num_comments, objectID, type
 
   useEffect(() => {
     setCurrentPage(1);
   }, [currentPage >= totalPages]);
 
   useEffect(() => {
+    // setPosts([]);
     setLoading(true);
+    console.log(`CurrentPage useEffect`);
     pageSwitch(postType);
   }, [currentPage]);
 
-  useEffect(() => {
-    saveFavorites();
-  }, [favorites]);
-
-  const saveFavorites = () => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  };
-
   const pageSwitch = (postType) => {
+    console.log(`\n\npageSwitch => ${postType}`);
     switch (postType) {
       case "new":
         getHNData("(story,show_hn,ask_hn)");
@@ -77,6 +62,9 @@ function Home({ favorites, setFavorites }) {
       .then((response) => response.json())
       .then((data) => {
         setPosts([]);
+        console.log(name);
+        console.log(currentPage);
+        console.log(data);
         setCurrentPage(data.page);
         setTotalPages(data.nbPages);
         data.hits.map((singlePost) =>

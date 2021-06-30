@@ -3,11 +3,9 @@ import { useHistory } from "react-router-dom";
 
 function GoBack() {
   const history = useHistory();
-
   const handleClick = () => {
     history.goBack();
   };
-
   return (
     <>
       <hr />

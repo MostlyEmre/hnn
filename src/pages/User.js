@@ -5,25 +5,20 @@ import Loading from "../components/Loading";
 import LastPosts from "../components/LastPosts";
 import { xAgo, calendarDate } from "../helper";
 
-function User({ match, favorites, setFavorites }) {
+function User({ match }) {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const abortController = new AbortController();
-    const signal = abortController.signal;
+    fetchUser();
+  }, []);
 
-    // Get User data
-    fetch(`https://hacker-news.firebaseio.com/v0/user/${match.params.username}.json?print=pretty`, { signal: signal })
-      .then((response) => response.json())
-      .then((data) => setUser(data))
-      .then(() => setLoading(false));
-
-    // abort
-    return () => {
-      abortController.abort();
-    };
-  }, [match.params.username]);
+  const fetchUser = async () => {
+    const response = await fetch(`https://hacker-news.firebaseio.com/v0/user/${match.params.username}.json?print=pretty`);
+    const data = await response.json();
+    setUser(data);
+    setLoading(false);
+  };
 
   if (loading) {
     return <Loading />;
@@ -48,7 +43,7 @@ function User({ match, favorites, setFavorites }) {
         <h2>Bio</h2>
         {user.about ? <div className="bio-wrapper" dangerouslySetInnerHTML={{ __html: user.about }} /> : <p>{_.capitalize(user.id)} doesn't have a bio.</p>}
       </div>
-      <LastPosts user={user.id} favorites={favorites} setFavorites={setFavorites} />
+      <LastPosts user={user.id} />
     </div>
   );
 }
