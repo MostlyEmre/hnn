@@ -13,7 +13,7 @@ export default function LastPosts({ user, favorites, setFavorites }) {
   }, []);
 
   const fetchLastThreePosts = () => {
-    fetch(`http://hn.algolia.com/api/v1/search_by_date?tags=story,author_${user}&hitsPerPage=3`)
+    fetch(`https://hn.algolia.com/api/v1/search_by_date?tags=story,author_${user}&hitsPerPage=3`)
       .then((response) => response.json())
       .then((data) =>
         data.hits.map((singlePost) =>
