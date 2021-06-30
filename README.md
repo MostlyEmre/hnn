@@ -16,7 +16,7 @@ HNN doesn't show the children comments. So the comments are only 1 level deep.
 
 ## What did I do? What will I do?
 
-There are things that I've done that I forgot to list below.
+The list doesn't have everything.
 
 - [x] Automatically hide deleted comments that are still on the API.
 - [x] Favorite posts.
