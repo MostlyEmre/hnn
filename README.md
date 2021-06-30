@@ -14,16 +14,17 @@ HNN doesn't show the children comments. So the comments are only 1 level deep.
 
 ## What did I do? What will I do?
 
+There are things that I've done that I forgot to list below.
+
 - [x] Automatically hide deleted comments that are still on the API.
 - [x] Favorite posts.
 - [x] Pagination.
+- [x] Go Back button.
 - [x] Do the `new` page, `askHN` page, `showHN` page
 - [x] List the last 3 submissions of a user.
 
 ### Some maybes:
 
-- [ ] Record Favorites to localStorage.
+- [x] Save Favorites to localStorage.
 - [ ] Implement search.
-- [ ] Block posts.
-- [ ] Sort the comments either by their children count or karma or something. (API limitations 😢)
-- [ ] Login to favorite and see your favorites.
+- [ ] ~~Sort the comments either by their children count or karma or something.~~ (API limitations 😢)

@@ -6,13 +6,12 @@ import Loading from "../components/Loading";
 import Pagination from "../components/Pagination";
 import { useParams } from "react-router-dom";
 
-function Home() {
+function Home({ favorites, setFavorites }) {
   let { postType } = useParams();
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
-  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     // setPosts([]);

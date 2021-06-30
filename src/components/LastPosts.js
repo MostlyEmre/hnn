@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import PostCard from "./PostCard";
 import Loading from "./Loading";
 
-export default function LastPosts({ user }) {
+export default function LastPosts({ user, favorites, setFavorites }) {
   const [recentPosts, setRecentPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -45,7 +45,7 @@ export default function LastPosts({ user }) {
     <div>
       <h2>Latest Posts</h2>
 
-      {recentPosts.length === 0 ? <p>Couldn't find any posts. :(</p> : recentPosts.map((post) => <PostCard key={uuidv4()} postData={post} />)}
+      {recentPosts.length === 0 ? <p>Couldn't find any posts. :(</p> : recentPosts.map((post) => <PostCard key={uuidv4()} postData={post} favorites={favorites} setFavorites={setFavorites} />)}
     </div>
   );
 }
