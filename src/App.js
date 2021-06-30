@@ -12,7 +12,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    localStorage.getItem("favorites" === null) ? localStorage.setItem("favorites", JSON.stringify([])) : setFavorites(JSON.parse(localStorage.getItem("favorites")));
+    localStorage.getItem("favorites") === null ? localStorage.setItem("favorites", JSON.stringify(favorites)) : setFavorites(JSON.parse(localStorage.getItem("favorites")));
     // localStorage.getItem("favorites" === null) ? localStorage.setItem("favorites", []) : setFavorites(localStorage.getItem("favorites"));
   }, []);
 
