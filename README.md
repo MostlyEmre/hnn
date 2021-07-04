@@ -41,4 +41,4 @@ The list doesn't have everything.
 - [x] Save Favorites to localStorage.
 - [ ] Implement search.
 - [ ] ~~Sort the comments either by their children count or karma or something.~~ (API limitations 😢)
-- [ ] Detect paywalled news sites and replace their URL with an archive.is one. (It can provide it as an alternative instead of replacing.) ([As requested in a comment on HN](https://news.ycombinator.com/item?id=27722427))
+- [ ] Detect paywalled news sites and replace their URL with an archive.is one. (It can provide it as an alternative instead of replacing.) ([As requested in a comment on HN](https://news.ycombinator.com/item?id=27722427)) ([A list of popular paywalled sites](https://github.com/iamadamdev/bypass-paywalls-chrome/blob/master/src/js/sites.js))
