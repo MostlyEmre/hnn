@@ -15,6 +15,7 @@ Just wanted to write it down so that I never ever forget it.
 The following typo cost me 1.5 days:
 
 ❎ localStorage.getItem("favorites" === null) ? ...
+
 ✅ localStorage.getItem("favorites") === null ? ...
 
 ## Helper functions
@@ -40,3 +41,4 @@ The list doesn't have everything.
 - [x] Save Favorites to localStorage.
 - [ ] Implement search.
 - [ ] ~~Sort the comments either by their children count or karma or something.~~ (API limitations 😢)
+- [ ] Detect paywalled news sites and replace their URL with an archive.is one. (It can provide it as an alternative instead of replacing.) ([As requested in a comment on HN](https://news.ycombinator.com/item?id=27722427))
