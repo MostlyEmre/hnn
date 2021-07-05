@@ -32,6 +32,11 @@ function Header() {
             show
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/favorites" activeClassName="active-link">
+            favorites
+          </NavLink>
+        </li>
       </ul>
     </header>
   );
