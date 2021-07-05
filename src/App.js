@@ -36,21 +36,7 @@ function App() {
       <div className="App">
         <Header />
         <Switch>
-          {/* <Route
-            path="/"
-            exact
-            render={(props) => (
-              <Home
-                {...props}
-                favorites={favorites}
-                setFavorites={setFavorites}
-                currentPageType={currentPageType}
-                setCurrentPageType={setCurrentPageType}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-              />
-            )}
-          /> */}
+          <Route path="/" exact render={(props) => <Home {...props} favorites={favorites} setFavorites={setFavorites} />} />
           {/* <Route
             path="/:category"
             exact
