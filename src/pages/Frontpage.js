@@ -40,7 +40,7 @@ export default function Frontpage({ favorites, setFavorites }) {
   }
 
   const getHNData = () => {
-    fetch(`http://hn.algolia.com/api/v1/search?tags=front_page&page=${currentPage}&hitsPerPage=10`)
+    fetch(`https://hn.algolia.com/api/v1/search?tags=front_page&page=${currentPage}&hitsPerPage=10`)
       .then((response) => response.json())
       .then((data) => {
         setPosts([]);
