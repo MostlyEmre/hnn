@@ -25,7 +25,6 @@ function Post({ match }) {
       const postDomain = urlDissector(postAddress);
       for (let i = 0; i < paywallArray.length; i++) {
         if (postDomain.includes(paywallArray[i])) {
-          console.log(`> Post ${postDomain} is paywalled.`);
           return "true";
         }
       }

@@ -14,9 +14,7 @@ export default function Frontpage({ favorites, setFavorites }) {
 
   useEffect(() => {
     setCurrentPage(1);
-    console.log(paywallArray);
     getHNData();
-    console.log(posts);
   }, []);
 
   useEffect(() => {
@@ -26,7 +24,6 @@ export default function Frontpage({ favorites, setFavorites }) {
   useEffect(() => {
     // setPosts([]);
     setLoading(true);
-    console.log(posts);
     getHNData();
   }, [currentPage]);
 
@@ -36,7 +33,6 @@ export default function Frontpage({ favorites, setFavorites }) {
       const postDomain = postURL.hostname;
       for (let i = 0; i < paywallArray.length; i++) {
         if (postDomain.includes(paywallArray[i])) {
-          console.log(`> Post ${postURL} is paywalled.`);
           return "true";
         }
       }
