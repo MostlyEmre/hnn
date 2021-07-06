@@ -1,29 +1,24 @@
 body {
-  max-width: 50ch;
-  margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #181818;
   color: whitesmoke;
-}
-
-.App {
-  overflow-wrap: break-word;
-  width: 95%;
-  margin: auto;
+  margin: 0;
 }
 a {
   color: whitesmoke;
   text-decoration: none;
   font-weight: bold;
 }
-
+.App {
+  max-width: 50ch;
+  margin: auto;
+}
 /* Header */
 header {
-  width: 100%;
   height: 3rem;
-  margin: 1rem auto 0rem auto;
+  margin: 0.5rem 0rem 0rem 0rem;
   display: grid;
   grid-template-columns: 1fr 4fr;
 }
@@ -101,10 +96,7 @@ hr {
 
 .logo {
   display: inline-block;
-  margin-right: 1rem;
-  margin-bottom: 0;
-  margin-top: 0.5rem;
-  /* margin-left: 1rem; */
+  margin: 0.5rem 1rem 0rem 0rem;
 }
 
 /* ButtonBundle */
@@ -194,10 +186,9 @@ hr {
 
 /* GoBack */
 
-.goback-wrapper {
+/* .goback-wrapper {
   width: 90%;
-  margin: auto;
-}
+} */
 
 .goback-wrapper > button {
   background-color: whitesmoke;
@@ -241,8 +232,7 @@ hr {
 
 /* Pagination */
 .pagination {
-  width: 90%;
-  margin: auto;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-top: 1rem;
