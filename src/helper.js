@@ -10,4 +10,12 @@ const calendarDate = (unixTime) => {
   return dayjs.unix(unixTime).format("MMM DD, YYYY");
 };
 
-export { xAgo, calendarDate };
+// returns the URL's hostname
+const urlDissector = (url) => {
+  let dissector = new URL(url);
+  let urlHostname = dissector.hostname.replace("www.", "");
+
+  return urlHostname;
+};
+
+export { xAgo, calendarDate, urlDissector };

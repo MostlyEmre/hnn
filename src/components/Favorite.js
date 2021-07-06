@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function Favorite({ postID, postData, favorites, setFavorites }) {
   const addFavorite = () => {
@@ -8,15 +8,21 @@ function Favorite({ postID, postData, favorites, setFavorites }) {
         title: postData.title,
         url: postData.url,
         objectID: postData.objectID,
+        paywall: postData.paywall,
       },
     ]);
   };
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   const removeFavorite = () => {
     setFavorites(favorites.filter((favorite) => favorite.objectID !== postID));
   };
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
     favorites.some((favorite) => favorite.objectID === postID) ? removeFavorite() : addFavorite();
   };
 

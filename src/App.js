@@ -21,10 +21,6 @@ function App() {
     localStorage.getItem("favorites") === null ? localStorage.setItem("favorites", JSON.stringify(favorites)) : setFavorites(JSON.parse(localStorage.getItem("favorites")));
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
-
   return (
     <Router>
       <div className="App">

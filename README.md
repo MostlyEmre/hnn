@@ -24,6 +24,16 @@ The following typo cost me 1.5 days:
 
 `calendarTime(unixTimestamp)` // receives Unix Timestamp, returns a calendar date like `20 Dec, 2021` as a string.
 
+`urlDissector(url)` // receives raw URL, returns the URL hostname.
+
+```
+Raw URL:
+https://www.google.com/search?q=dissecter&oq=dissecter&aqs=chrome..69i57.370j0j7&sourceid=chrome&ie=UTF-8
+
+Returned URL Hostname:
+google.com
+```
+
 ## What did I do? What will I do?
 
 The list doesn't have everything.
