@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { paywallSites } from "./paywall";
 // import pages
 import Post from "./pages/Post";
 import Home from "./pages/Home";
@@ -15,8 +16,6 @@ import Footer from "./components/Footer";
 
 function App() {
   const [favorites, setFavorites] = useState([]);
-  const [currentPageType, setCurrentPageType] = useState("frontpage");
-  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     localStorage.getItem("favorites") === null ? localStorage.setItem("favorites", JSON.stringify(favorites)) : setFavorites(JSON.parse(localStorage.getItem("favorites")));
@@ -25,10 +24,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [currentPageType]);
 
   return (
     <Router>

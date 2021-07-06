@@ -269,3 +269,13 @@ hr {
 pre {
   display: none;
 }
+
+/* PaywallButton */
+.paywall {
+  background-color: red;
+}
+
+.postDomain {
+  font-size: 0.7rem;
+  color: gray;
+}

@@ -2,7 +2,14 @@ import React from "react";
 
 function Favorite({ postID, postData, favorites, setFavorites }) {
   const addFavorite = () => {
-    setFavorites([...(favorites || []), postData]);
+    setFavorites([
+      ...(favorites || []),
+      {
+        title: postData.title,
+        url: postData.url,
+        objectID: postData.objectID,
+      },
+    ]);
   };
 
   const removeFavorite = () => {
@@ -10,10 +17,10 @@ function Favorite({ postID, postData, favorites, setFavorites }) {
   };
 
   const handleClick = () => {
-    favorites.includes(postData) ? removeFavorite() : addFavorite();
+    favorites.some((favorite) => favorite.objectID === postID) ? removeFavorite() : addFavorite();
   };
 
-  if (favorites.includes(postData)) {
+  if (favorites.some((favorite) => favorite.objectID === postID)) {
     return (
       <div className="favorited">
         <button onClick={handleClick}>Favorited</button>
