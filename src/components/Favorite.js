@@ -1,19 +1,19 @@
 import React from "react";
 
-function Favorite({ postID, favorites, setFavorites }) {
+function Favorite({ postID, postData, favorites, setFavorites }) {
   const addFavorite = () => {
-    setFavorites([...(favorites || []), postID]);
+    setFavorites([...(favorites || []), postData]);
   };
 
   const removeFavorite = () => {
-    setFavorites(favorites.filter((favorite) => favorite !== postID));
+    setFavorites(favorites.filter((favorite) => favorite.objectID !== postID));
   };
 
   const handleClick = () => {
-    favorites.includes(postID) ? removeFavorite() : addFavorite();
+    favorites.includes(postData) ? removeFavorite() : addFavorite();
   };
 
-  if (favorites.includes(postID)) {
+  if (favorites.includes(postData)) {
     return (
       <div className="favorited">
         <button onClick={handleClick}>Favorited</button>

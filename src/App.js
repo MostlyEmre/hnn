@@ -20,7 +20,6 @@ function App() {
 
   useEffect(() => {
     localStorage.getItem("favorites") === null ? localStorage.setItem("favorites", JSON.stringify(favorites)) : setFavorites(JSON.parse(localStorage.getItem("favorites")));
-    // localStorage.getItem("favorites" === null) ? localStorage.setItem("favorites", []) : setFavorites(localStorage.getItem("favorites"));
   }, []);
 
   useEffect(() => {
@@ -36,23 +35,8 @@ function App() {
       <div className="App">
         <Header />
         <Switch>
-          <Route path="/" exact render={(props) => <Home {...props} favorites={favorites} setFavorites={setFavorites} />} />
-          {/* <Route
-            path="/:category"
-            exact
-            render={(props) => (
-              <Home
-                {...props}
-                favorites={favorites}
-                setFavorites={setFavorites}
-                currentPageType={currentPageType}
-                setCurrentPageType={setCurrentPageType}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-              />
-            )}
-          /> */}
           {/* Core Pages */}
+          <Route path="/" exact render={(props) => <Home {...props} favorites={favorites} setFavorites={setFavorites} />} />
           <Route path="/new" exact render={(props) => <New {...props} favorites={favorites} setFavorites={setFavorites} />} />
           <Route path="/show" exact render={(props) => <Show {...props} favorites={favorites} setFavorites={setFavorites} />} />
           <Route path="/ask" exact render={(props) => <Ask {...props} favorites={favorites} setFavorites={setFavorites} />} />

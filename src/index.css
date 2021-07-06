@@ -8,10 +8,6 @@ body {
   color: whitesmoke;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
 .App {
   overflow-wrap: break-word;
   width: 95%;
