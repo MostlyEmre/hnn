@@ -9,6 +9,8 @@ function Favorite({ postID, postData, favorites, setFavorites }) {
         url: postData.url,
         objectID: postData.objectID,
         paywall: postData.paywall,
+        created_at_i: postData.created_at_i,
+        num_comments: postData.num_comments,
       },
     ]);
   };

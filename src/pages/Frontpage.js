@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import PostCard from "../components/PostCard";
 import Loading from "../components/Loading";
 import Pagination from "../components/Pagination";
+import { paywallArray } from "../paywall.js";
 
 export default function Frontpage({ favorites, setFavorites }) {
   const [posts, setPosts] = useState([]);
@@ -13,7 +14,9 @@ export default function Frontpage({ favorites, setFavorites }) {
 
   useEffect(() => {
     setCurrentPage(1);
+    console.log(paywallArray);
     getHNData();
+    console.log(posts);
   }, []);
 
   useEffect(() => {
@@ -23,8 +26,22 @@ export default function Frontpage({ favorites, setFavorites }) {
   useEffect(() => {
     // setPosts([]);
     setLoading(true);
+    console.log(posts);
     getHNData();
   }, [currentPage]);
+
+  function urlObjectValue(postAddress) {
+    if (postAddress !== null) {
+      const postURL = new URL(postAddress);
+      const postDomain = postURL.hostname;
+      for (let i = 0; i < paywallArray.length; i++) {
+        if (postDomain.includes(paywallArray[i])) {
+          console.log(`> Post ${postURL} is paywalled.`);
+          return "true";
+        }
+      }
+    }
+  }
 
   const getHNData = () => {
     fetch(`http://hn.algolia.com/api/v1/search?tags=front_page&page=${currentPage}&hitsPerPage=10`)
@@ -37,14 +54,13 @@ export default function Frontpage({ favorites, setFavorites }) {
           setPosts((posts) => [
             ...posts,
             {
-              favorite: false,
+              paywall: urlObjectValue(singlePost.url),
               created_at_i: singlePost.created_at_i,
               title: singlePost.title,
               author: singlePost.author,
               points: singlePost.points,
               num_comments: singlePost.num_comments,
               objectID: singlePost.objectID,
-              type: singlePost.type,
               url: singlePost.url,
             },
           ])

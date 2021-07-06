@@ -1,10 +1,14 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; */
+  font-family: "Nunito", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #181818;
   color: whitesmoke;
   margin: 0;
+}
+button {
+  font-family: "Nunito", sans-serif;
 }
 a {
   color: whitesmoke;
@@ -12,7 +16,7 @@ a {
   font-weight: bold;
 }
 .App {
-  max-width: 50ch;
+  max-width: 55ch;
   margin: auto;
 }
 /* Header */
@@ -53,6 +57,7 @@ p {
 .external-link-wrapper {
   margin: 0rem 0.5rem 1rem 0rem;
   background-color: whitesmoke;
+  word-break: break-all;
   padding: 1rem;
   border-radius: 0rem 1rem 1rem 1rem;
 }
@@ -104,7 +109,6 @@ hr {
 }
 
 /* ButtonBundle */
-
 .favorite-wrapper,
 .favorited {
   display: inline-block;
@@ -272,7 +276,7 @@ hr {
 }
 
 pre {
-  display: none;
+  word-break: break-all;
 }
 
 /* PaywallButton */
@@ -289,7 +293,33 @@ pre {
 }
 
 .postDomain {
-  margin-top: 0.6rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   font-size: 0.8rem;
   opacity: 0.4;
+}
+/* PaywallCard */
+.paywall-card {
+  background-color: #ff3838;
+  border-radius: 1rem;
+  padding: 1rem 1rem 1rem 1rem;
+  font-weight: bold;
+  text-align: justify;
+}
+.paywall-card p {
+  color: white;
+}
+
+.paywall-card button {
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: whitesmoke;
+  border: none;
+}
+.paywall-card button a {
+  color: black;
+}
+.paywall-card button:hover {
+  background-color: white;
 }

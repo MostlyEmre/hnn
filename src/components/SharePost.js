@@ -21,7 +21,7 @@ export default function SharePost({ postID }) {
           Link is Copied!
         </button>
       ) : (
-        <button onClick={handleClick}>Copy Post Link</button>
+        <button onClick={handleClick}>Copy URL</button>
       )}
     </div>
   );
