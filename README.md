@@ -8,6 +8,16 @@ For this project, I applied custom css instead of delving into one of the Compon
 
 HNN doesn't show the children comments. So the comments are only 1 level deep.
 
+## Features
+
+- **All feeds are available:** You can view new posts, the frontpage, Ask HackerNews, Show HackerNews as separate feeds. You'll feel right at home.
+- **Paywall detection:** Detects websites that implement paywalls or similar tactics and provides archive.is and archive.org links for the specific URL/Article both on thumbnail view and detail view.
+- **Persistent favorites:** Users can favorite/unfavorite posts. They can view their favorites on the Favorites page. They can close the browser, or their computer without losing their favorites. No login required.
+- **Detailed User Page:** Unlike `news.ycombinator`, HNN shows user's last 3 submissions on their profile page. Plus more.
+- **Copy submission URL:** No need to copy the URL of the submission by right clicking, there's a button for that.
+- **Pagination:** Easy to use navigation.
+- **Context aware "Go Back" button:** You will never get lost, no matter where you click, you can always go back.
+
 ## A bug
 
 Just wanted to write it down so that I never ever forget it.
@@ -51,4 +61,4 @@ The list doesn't have everything.
 - [x] Save Favorites to localStorage.
 - [ ] Implement search.
 - [ ] ~~Sort the comments either by their children count or karma or something.~~ (API limitations 😢)
-- [ ] Detect paywalled news sites and replace their URL with an archive.is one. (It can provide it as an alternative instead of replacing.) ([As requested in a comment on HN](https://news.ycombinator.com/item?id=27722427)) ([A list of popular paywalled sites](https://github.com/iamadamdev/bypass-paywalls-chrome/blob/master/src/js/sites.js))
+- [x] Detect paywalled news sites and replace their URL with an archive.is one. (It can provide it as an alternative instead of replacing.) ([As requested in a comment on HN](https://news.ycombinator.com/item?id=27722427)) ([A list of popular paywalled sites](https://github.com/iamadamdev/bypass-paywalls-chrome/blob/master/src/js/sites.js))
