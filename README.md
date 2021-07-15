@@ -1,8 +1,8 @@
 - [Information](#information)
 - [Features](#features)
 - [About the Paywall feature and the supporting NodeJS Script](#about-the-paywall-feature-and-the-supporting-nodejs-script)
-  - [Problem](#problem)
-  - [Solution](#solution)
+  - [The Problem](#the-problem)
+  - [The Solution](#the-solution)
 - [A bug](#a-bug)
 - [Helper functions](#helper-functions)
 - [What did I do? What will I do?](#what-did-i-do-what-will-i-do)
@@ -30,17 +30,19 @@ HNN doesn't show the children comments. So the comments are only 1 level deep.
 
 ## About the Paywall feature and the supporting NodeJS Script
 
-The paywall feature provides archive.is and archive.org URLs for the relevant article.
+The paywall feature provides archive.is and archive.org URLs for the relevant article. But there's an issue.
 
-### Problem
+### The Problem
 
 Not every paywalled article is archived on archive.is or archive.or.
 
-### Solution
+### The Solution
 
 [HN Paywall Archiver](https://github.com/EmreYYZ/HN-Paywall-Archive) is a NodeJS script I created that checks every new HackerNew post, tries to match the URL with the paywall database, and if matched, the script automatically archives the URL on Archive.is.
 
 This way, 99% of the posts you see on HNN with the paywall warning will have their archived versions ready when you click on the `Read without Paywall` button (Or the buttons on the post page) to read.
+
+The script is created to assist HNN. But I guess it helps humanity as a side effect by archiving the web.
 
 ## A bug
 
