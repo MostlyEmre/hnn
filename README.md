@@ -1,3 +1,13 @@
+- [Information](#information)
+- [Features](#features)
+- [About the Paywall feature and the supporting NodeJS Script](#about-the-paywall-feature-and-the-supporting-nodejs-script)
+  - [Problem](#problem)
+  - [Solution](#solution)
+- [A bug](#a-bug)
+- [Helper functions](#helper-functions)
+- [What did I do? What will I do?](#what-did-i-do-what-will-i-do)
+  - [Some maybes:](#some-maybes)
+
 ## Information
 
 [HNN](https://hnnetwork-a2abe.web.app/) is a [Hacker News](https://news.ycombinator.com/) reader that I created in React, to practice React.
@@ -17,6 +27,20 @@ HNN doesn't show the children comments. So the comments are only 1 level deep.
 - **Copy submission URL:** No need to copy the URL of the submission by right clicking, there's a button for that.
 - **Pagination:** Easy to use navigation.
 - **Context aware "Go Back" button:** You will never get lost, no matter where you click, you can always go back.
+
+## About the Paywall feature and the supporting NodeJS Script
+
+The paywall feature provides archive.is and archive.org URLs for the relevant article.
+
+### Problem
+
+Not every paywalled article is archived on archive.is or archive.or.
+
+### Solution
+
+[HN Paywall Archiver](https://github.com/EmreYYZ/HN-Paywall-Archive) is a NodeJS script I created that checks every new HackerNew post, tries to match the URL with the paywall database, and if matched, the script automatically archives the URL on Archive.is.
+
+This way, 99% of the posts you see on HNN with the paywall warning will have their archived versions ready when you click on the `Read without Paywall` button (Or the buttons on the post page) to read.
 
 ## A bug
 
