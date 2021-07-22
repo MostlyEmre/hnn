@@ -10,7 +10,7 @@
 
 ## Information
 
-[HNN](https://hnnetwork-a2abe.web.app/) is a [Hacker News](https://news.ycombinator.com/) reader that I created in React, to practice React. Accessible at [hn.emre.la](hn.emre.la)
+[HNN](https://hn.emre.la) is a [Hacker News](https://news.ycombinator.com/) reader that I created in React, to practice React. Accessible at [hn.emre.la](hn.emre.la)
 
 HNN uses 2 different Hacker News APIs, [Algolia HN API](https://hn.algolia.com/api) and [Firebase HN API](https://github.com/HackerNews/API). The reason for this is that one have the data that the other one does not, and the other have some APIs that the other one does not.
 
