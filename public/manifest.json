@@ -1,9 +1,0 @@
-{
-  "short_name": "HNN",
-  "name": "HNN Hacker News Reader",
-
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
-}
