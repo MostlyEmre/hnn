@@ -10,7 +10,7 @@
 
 ## Information
 
-[HNN](https://hnnetwork-a2abe.web.app/) is a [Hacker News](https://news.ycombinator.com/) reader that I created in React, to practice React. Accessible at [hnnetwork-a2abe.web.app](hnnetwork-a2abe.web.app)
+[HNN](https://hn.emre.la) is a [Hacker News](https://news.ycombinator.com/) reader that I created in React, to practice React. Accessible at [hn.emre.la](hn.emre.la)
 
 HNN uses 2 different Hacker News APIs, [Algolia HN API](https://hn.algolia.com/api) and [Firebase HN API](https://github.com/HackerNews/API). The reason for this is that one have the data that the other one does not, and the other have some APIs that the other one does not.
 
@@ -38,7 +38,7 @@ Not every paywalled article is archived on archive.is or archive.or.
 
 ### The Solution
 
-[HN Paywall Archiver](https://github.com/EmreYYZ/HN-Paywall-Archive) is a NodeJS script I created that checks every new HackerNew post, tries to match the URL with the paywall database, and if matched, the script automatically archives the URL on Archive.is.
+[HN Paywall Archiver](https://github.com/EmreYYZ/HN-Paywall-Archiver) is a NodeJS script I created that checks every new HackerNew post, tries to match the URL with the paywall database, and if matched, the script automatically archives the URL on Archive.is.
 
 This way, 99% of the posts you see on HNN with the paywall warning will have their archived versions ready when you click on the `Read without Paywall` button (Or the buttons on the post page) to read.
 
