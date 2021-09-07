@@ -1,4 +1,4 @@
-Check out HN Paywall Archiver [https://hpa.emre.la](https://hpa.emre.la)
+Check out HN Paywall Archiver [https://hpa.emre.ca](https://hpa.emre.ca)
 
 - [Information](#information)
 - [Features](#features)
