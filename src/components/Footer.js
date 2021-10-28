@@ -6,11 +6,11 @@ function Footer() {
       <hr />
       <p>
         made by{" "}
-        <a href="https://emre.la" target="_blank" rel="noreferrer">
+        <a href="https://emre.ca" target="_blank" rel="noreferrer">
           emre
         </a>
         . see the code on{" "}
-        <a href="https://github.com/EmreYYZ/hnn" target="_blank" rel="noreferrer">
+        <a href="https://github.com/MostlyEmre/hnn" target="_blank" rel="noreferrer">
           GitHub
         </a>
         .
